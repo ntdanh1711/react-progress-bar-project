@@ -5,6 +5,7 @@ import ButtonBar from './components/ButtonBar';
 import styles from './Home.scss';
 import services from './services';
 import Spinner from '../images/spinner.gif';
+import constant from './constant';
 
 class Home extends PureComponent {
   constructor(props) {
@@ -81,7 +82,7 @@ class Home extends PureComponent {
           ? <img src={Spinner} className={styles.searchLoading} alt="loader" />
           : (
             <div className={styles.content}>
-              <div className={styles.title}>Progress Bars Demo</div>
+              <div className={styles.title}>{constant.title}</div>
               {this.renderMultipleBars()}
               {this.renderButton()}
             </div>

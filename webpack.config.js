@@ -67,6 +67,12 @@ module.exports = {
     new HtmlWebPackPlugin({
       template: './public/index.html',
       filename: './index.html',
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true,
+      },
+      chunksSortMode: 'dependency',
     }),
     new webpack.ProvidePlugin({
       Promise: 'es6-promise-promise',
