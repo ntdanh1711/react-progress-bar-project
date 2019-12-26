@@ -11,7 +11,7 @@ class ProgressBar extends PureComponent {
       <div id={`complete${progressBarId}`} className={styles.progressBar}>
         <div
           id={`progress${progressBarId}`}
-          className={`${styles.completeBar} ${(value - limit >= 1)
+          className={`${styles.completeBar} ${(percentage > 100)
             ? styles.overLimitColor
             : styles.limitColor}`}
         />
