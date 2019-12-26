@@ -6,7 +6,7 @@ import styles from './ProgressBar.scss';
 class ProgressBar extends PureComponent {
   render() {
     const { progressBarId, value, limit } = this.props;
-    const percentage = (value / limit) * 100;
+    const percentage = Math.floor((value / limit) * 100);
     return (
       <div id={`complete${progressBarId}`} className={styles.progressBar}>
         <div
@@ -16,7 +16,7 @@ class ProgressBar extends PureComponent {
             : styles.limitColor}`}
         />
         <div className={styles.completeValue}>
-          {Math.floor(percentage)}
+          {percentage}
           %
         </div>
 
