@@ -1,0 +1,27 @@
+.progressBar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #FFFFFF;
+  margin: 1rem 0;
+  align-items: center;
+  position: relative; 
+  border: 1px solid #ccc 
+}
+
+.completeBar {
+  height: 3rem; 
+  transition: all 0.5s ease
+}
+
+.limitColor {
+  background-color:#AED8E6;
+}
+
+.overLimitColor {
+  background-color:#FE0000;
+}
+
+.completeValue {
+  position: absolute;
+  left: 50%;
+}

@@ -1,0 +1,45 @@
+
+@media screen and (min-device-width: 320px) {
+  .content {
+    width: 60%;
+  }
+}
+
+@media screen and (min-device-width: 481px) and (max-device-width: 1024px) { 
+  .content {
+    width: 40%;
+  }
+}
+
+@media screen and (min-device-width: 1025px) {
+  .content {
+    width: 30%;
+  }
+}
+
+.title {
+  font-weight: bold;
+  font-size: xx-large;
+  font-family: 'Times New Roman', Times, serif;
+}
+
+.listBars {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.searchLoading {
+	position: absolute;
+	left: 0;
+	right: 0;
+	margin: auto;
+}
+
+.show {
+	display: inline-block;
+}
+
+.hide {
+	display: none;
+}
