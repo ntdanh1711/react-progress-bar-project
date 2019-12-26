@@ -1,0 +1,26 @@
+@media screen and (min-device-width: 320px) {
+  .buttonBar {
+    width: 60%;
+  }
+}
+
+@media screen and (min-device-width: 481px) and (max-device-width: 1024px) { 
+  .buttonBar {
+    width: 40%;
+  }
+}
+
+@media screen and (min-device-width: 1025px) {
+  .buttonBar {
+    width: 30%;
+  }
+}
+
+.buttonBar {
+  display: flex;
+  justify-content: flex-start;
+}
+  
+.numberButton {
+  margin-right: 1rem;
+}
