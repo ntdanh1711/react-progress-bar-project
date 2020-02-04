@@ -8,8 +8,9 @@ class ProgressBar extends PureComponent {
     const { progressBarId, value, limit } = this.props;
     const percentage = Math.floor((value / limit) * 100);
     return (
-      <div id={`complete${progressBarId}`} className={styles.progressBar}>
+      <div ref={`complete${progressBarId}`} id={`complete${progressBarId}`} className={styles.progressBar}>
         <div
+          ref={`progress${progressBarId}`}
           id={`progress${progressBarId}`}
           className={`${styles.completeBar} ${(percentage > 100)
             ? styles.overLimitColor
