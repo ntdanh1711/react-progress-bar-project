@@ -16,12 +16,18 @@ class Home extends PureComponent {
       bars: [],
       buttons: [],
       limit: 0,
+      maxWidth: 0,
     };
+    this.progressRefs = [];
   }
 
   componentDidMount() {
     services.fetchBarLists(this.onFetchSuccess);
   }
+
+  setRef = (ref) => {
+    this.progressRefs.push(ref);
+  };
 
   onFetchSuccess = (data) => {
     const {
@@ -32,11 +38,12 @@ class Home extends PureComponent {
       isLoading: false, bars, buttons, limit,
     });
 
-    const parentElement = document.getElementById('complete0');
-    const maxWidth = getComputedStyle(parentElement).width;
+    const parentElement = this.progressRefs[0].refs.complete0;
+    const maxWidth = parentElement.offsetWidth;
+    this.setState({ maxWidth });
 
     bars.map((number, index) => {
-      const element = document.getElementById(`progress${index}`);
+      const element = this.progressRefs[index].refs[`progress${index}`];
       if (element) {
         element.style.width = `${(number * parseFloat(maxWidth)) / limit}px`;
       }
@@ -49,6 +56,7 @@ class Home extends PureComponent {
     const { bars, limit } = this.state;
     const progressBarLists = bars && bars.map((number, index) => (
       <ProgressBar
+        ref={this.setRef}
         key={`bar${index}`}
         value={number}
         progressBarId={index}
@@ -59,13 +67,17 @@ class Home extends PureComponent {
   }
 
   renderButton = () => {
-    const { bars, buttons, limit } = this.state;
+    const {
+      bars, buttons, limit, maxWidth,
+    } = this.state;
     return (
       <ButtonBar
         bars={bars}
         buttons={buttons}
         limit={limit}
         onClickCallback={this.onClickButton}
+        maxWidth={maxWidth}
+        progressRefs={this.progressRefs}
       />
     );
   }

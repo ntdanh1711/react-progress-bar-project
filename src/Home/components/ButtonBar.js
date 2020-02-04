@@ -8,7 +8,6 @@ class ButtonBar extends PureComponent {
     super(props);
 
     this.state = {
-      barSelected: 'progress0',
       positionSelected: 0,
     };
   }
@@ -16,18 +15,18 @@ class ButtonBar extends PureComponent {
   onSelectChange = (e) => {
     const selectedValue = e.target.value;
     this.setState({
-      barSelected: selectedValue,
       positionSelected: selectedValue.substring(selectedValue.length - 1),
     });
   }
 
   onChangeProgress = (e) => {
-    const { limit, bars, onClickCallback } = this.props;
-    const { barSelected, positionSelected } = this.state;
-    const parentElement = document.getElementById('complete0');
-    const maxWidth = getComputedStyle(parentElement).width;
+    const {
+      limit, bars, onClickCallback, maxWidth, progressRefs,
+    } = this.props;
+    const { positionSelected } = this.state;
 
-    const selectedElement = document.getElementById(barSelected);
+    const selectedElement = progressRefs[positionSelected].refs[`progress${positionSelected}`];
+
     let newWidth = parseFloat(selectedElement.style.width);
     const valueChange = (parseFloat(e.target.value) * parseFloat(maxWidth)) / limit;
     newWidth += valueChange;
@@ -75,6 +74,8 @@ ButtonBar.propTypes = {
   buttons: PropTypes.arrayOf(PropTypes.number).isRequired,
   limit: PropTypes.number.isRequired,
   onClickCallback: PropTypes.func.isRequired,
+  maxWidth: PropTypes.number.isRequired,
+  progressRefs: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default ButtonBar;
