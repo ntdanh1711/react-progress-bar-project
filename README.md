@@ -34,9 +34,9 @@ Progress bars application
 ### Installation
 Clone this repo in git clone [GitHub](https://github.com/ntdanh1711/progress-bar)
 
-Run yarn install
+Run "yarn install"
 
 
 ### Commands
-start Runs webpack dev server for development ( in watch mode )
-build Runs webpack in production mode
+"start" Runs webpack dev server for development ( in watch mode )
+"build" Runs webpack in production mode
