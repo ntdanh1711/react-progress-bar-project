@@ -1,8 +1,13 @@
 # Progress Bars
 
 🔥 This is a Progress bars build from React .
-
-Feature: 
+### Technical:
+  + ReactJS, Sass(SCSS)
+  + Compiler: Babel
+  + Bundler: Webpack
+  + Unitest: Jest
+  + Linting: Eslint
+### Feature: 
   + Multiple bars
   + One set of controls that can control each bar on the fly
   + Can't go under 0
@@ -19,19 +24,20 @@ Feature:
 
 ![Demo Logo](/Demo.PNG)
 
-Before you Start
+### Before you Start
 I've branched the repo for individual topics. To checkout all branches run: git branch --all. To checkout individual branch run: git checkout <branch name>. From there on you should be good.
 
 Branch Name: master or develop
 Branch Description:
 Progress bars application
 
-Installation
+### Installation
 Clone this repo in git clone [GitHub](https://github.com/ntdanh1711/progress-bar)
 
-Run yarn install
+Run "yarn install"
 
 
-Commands
-start Runs webpack dev server for development ( in watch mode )
-build Runs webpack in production mode
+### Commands
+"start" Runs webpack dev server for development ( in watch mode )
+
+"build" Runs webpack in production mode
